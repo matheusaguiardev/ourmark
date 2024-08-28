@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  HomeView.swift
 //  ourmarket
 //
 //  Created by Matheus Aguiar on 29/04/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct HomeView: View {
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -16,10 +16,11 @@ struct ContentView: View {
             Text("Hello, world!")
             
         }
+        .navigationTitle("OurMarket")
         .padding()
     }
 }
 
 #Preview {
-    ContentView()
+    HomeView()
 }
