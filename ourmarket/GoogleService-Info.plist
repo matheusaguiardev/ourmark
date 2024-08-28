@@ -21,17 +21,24 @@
 	<key>STORAGE_BUCKET</key>
 	<string>lisync.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:734843003255:ios:77c96ef24054da7e804172</string>
+	<string>1:734843003255:ios:ab1c54e5ffaa0c49804172</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.googleusercontent.apps.734843003255-n8v5rets5mf8eg0ilnpvngllvr3lov2h</string>
+		</dict>
+	</array>
 	<key>DATABASE_URL</key>
 	<string>https://lisync-default-rtdb.firebaseio.com</string>
 </dict>

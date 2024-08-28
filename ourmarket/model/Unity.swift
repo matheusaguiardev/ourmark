@@ -7,6 +7,10 @@
 
 import Foundation
 
-enum Unity {
-    case Un, L, ml, mm, M
+enum Unity: String, CaseIterable {
+    case Un = "Un"
+    case L = "L"
+    case ml = "ml"
+    case mm = "mm"
+    case M = "m"
 }

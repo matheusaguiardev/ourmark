@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MarketView: View {
+struct MarketCell: View {
     let marketInfo: Market
     
     init(market: Market) {
@@ -34,10 +34,14 @@ struct MarketView: View {
             Image(systemName: "chevron.right")
                     .foregroundColor(Color.black)
                     .padding(6)
-        }.padding(30)
+        }.padding(15)
+            .overlay(
+                RoundedRectangle(cornerRadius: 14)
+                    .stroke(.black, lineWidth: 1)
+            ).padding(30)
     }
 }
 
 #Preview {
-    MarketView(market: marketStub)
+    MarketCell(market: marketStub)
 }
