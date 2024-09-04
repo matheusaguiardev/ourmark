@@ -5,6 +5,7 @@
 //  Created by Matheus Aguiar on 30/04/24.
 //
 
+import CurrencyField
 import SwiftUI
 
 struct ProductCell: View {
@@ -14,13 +15,28 @@ struct ProductCell: View {
     init(product: Product, color: Color) {
         self.product = product
         self.color = color
+        self.price = product.price
+    }
+    
+    @State private var chosenLocale = Locale(identifier: "pt_BR")
+    @State private var price: Int
+
+    private var formatter: NumberFormatter {
+        let fmt = NumberFormatter()
+        fmt.numberStyle = .currency
+        fmt.minimumFractionDigits = 2
+        fmt.maximumFractionDigits = 2
+        fmt.locale = chosenLocale
+        return fmt
     }
     
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
                 Text("Nome: \(self.product.name)")
-                Text("Ultimo preço: \(self.product.price.toCurrency())")
+                //Text("Ultimo preço: \(self.product.price.toCurrency())")
+                CurrencyField(value: $price)
+                    .font(.largeTitle.monospaced())
                 Text("Quantidade: \(self.product.quantity) \(self.product.unity)")
             }
             Spacer()

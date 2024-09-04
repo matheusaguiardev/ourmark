@@ -6,23 +6,27 @@
 //
 
 import SwiftUI
+import CurrencyField
 
 struct MarketCell: View {
     let marketInfo: Market
+    @State private var price: Int
     
     init(market: Market) {
         self.marketInfo = market
+        price = market.price
     }
     
     var body: some View {
         
         HStack(alignment: .center) {
             VStack(alignment: .leading) {
-                Text("Mix Mateus")
+                Text(marketInfo.name)
                 HStack {
                     Text(self.marketInfo.date.formatDate())
                     Spacer()
-                    Text(self.marketInfo.price.toCurrency())
+                    CurrencyField(value: $price)
+                        
                 }
                 HStack(alignment: .bottom) {
                     Text("Quantidade: \(self.marketInfo.itensAmount)")
@@ -38,7 +42,7 @@ struct MarketCell: View {
             .overlay(
                 RoundedRectangle(cornerRadius: 14)
                     .stroke(.black, lineWidth: 1)
-            ).padding(30)
+            )
     }
 }
 

@@ -6,27 +6,29 @@
 //
 
 import SwiftUI
+import CurrencyField
 
 struct ProductView: View {
-    let product: Product
+    let product: Product?
+    private let productRepository = ProductsRepository()
     
     @State private var productName: String
-    @State private var price: String
-    @State private var quantity: Int
+    @State private var price: Int = 0
+    @State private var quantity: Int? = nil
     @State private var mark: String
     @State private var substitute: String
     @State private var detail: String
     @State private var unitySelection = Unity.Un
     
-    init(product: Product) {
+    init(product: Product?) {
         self.product = product
-        _productName = State(initialValue: self.product.name)
-        _price = State(initialValue: String(self.product.price))
-        _quantity = State(initialValue: self.product.quantity)
-        _mark = State(initialValue: self.product.mark)
-        _substitute = State(initialValue: self.product.substitute?.name ?? "")
-        _unitySelection = State(initialValue: self.product.unity)
-        _detail = State(initialValue: self.product.details)
+        _productName = State(initialValue: self.product?.name ?? "")
+        _price = State(initialValue: self.product?.price ?? 0)
+        _quantity = State(initialValue: self.product?.quantity ?? 0)
+        _mark = State(initialValue: self.product?.mark ?? "")
+        _substitute = State(initialValue: self.product?.substitute?.name ?? "")
+        _unitySelection = State(initialValue: self.product?.unity ?? Unity.Un)
+        _detail = State(initialValue: self.product?.details ?? "")
     }
     
     var body: some View {
@@ -37,14 +39,8 @@ struct ProductView: View {
                     RoundedRectangle(cornerRadius: 14)
                         .stroke(.black, lineWidth: 1)
                 )
-            TextField("Preço", text: $price)
-                .keyboardType(.decimalPad)
-                .onChange(of: price) {
-                    print(price)
-                    let formatted = formatCoin(String(format: "%.2f", price))
-                    print("texto formatado \(formatted)")
-                    price = formatted
-                }
+            
+            CurrencyField(value: $price)
                 .padding()
                 .overlay(
                     RoundedRectangle(cornerRadius: 14)
@@ -91,16 +87,18 @@ struct ProductView: View {
     
     func saveProduct() {
         let product = Product(
+            id: UUID().uuidString,
             name: _productName.wrappedValue,
-            price: Double(_price.wrappedValue) ?? 00,
+            price: _price.wrappedValue,
             mark: _mark.wrappedValue,
             details: _detail.wrappedValue,
-            quantity: _quantity.wrappedValue,
+            quantity: _quantity.wrappedValue ?? 0,
             unity: _unitySelection.wrappedValue,
             substitute: nil
 
         )
-        print("salvando produto \(product.name)")
+        
+        productRepository.addMarket(product: product)
     }
 }
 

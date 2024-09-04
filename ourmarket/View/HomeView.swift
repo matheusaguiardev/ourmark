@@ -8,19 +8,59 @@
 import SwiftUI
 
 struct HomeView: View {
+    @StateObject private var viewModel = MarketViewModel()
+    @State private var showModal = false
+    
+    private let marketRepository = MarketRepository()
+    
+    var owner: String
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-            
+        NavigationStack {
+            List(viewModel.markets) { market in
+                MarketCell(market: market)
+            }
+            .navigationTitle("OurMarket")
+            .navigationBarTitleDisplayMode(.inline) // Ajusta a exibição do título
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink(destination: ProductView(product: nil)) {
+                        Text("Produtos")
+                            .font(.headline)
+                    }
+                }
+            }
+            .sheet(isPresented: $showModal) {
+                AddMarketView(showModal: $showModal, owner: self.owner) { market in
+                    marketRepository.addMarket(market: market)
+                }
+            }
+            .overlay(
+                VStack {
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            showModal.toggle()
+                        }) {
+                            Image(systemName: "plus")
+                                .font(.title)
+                                .foregroundColor(.white)
+                                .padding()
+                                .background(Color.blue)
+                                .clipShape(Circle())
+                                .shadow(radius: 10)
+                        }
+                        .padding()
+                    }
+                }
+                , alignment: .bottomTrailing
+            )
         }
-        .navigationTitle("OurMarket")
-        .padding()
+        .navigationBarBackButtonHidden(true)
     }
 }
 
 #Preview {
-    HomeView()
+    HomeView(owner: "Usuário")
 }

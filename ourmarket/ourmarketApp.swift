@@ -14,7 +14,9 @@ struct ourmarketApp: App {
     
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            NavigationView {
+                LoginView()
+            }
         }
     }
 }

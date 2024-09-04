@@ -13,11 +13,17 @@ import FirebaseAuth
 class AuthViewModel: ObservableObject {
     @Published var user: User?
 
+    init() {
+           // Verifica o estado de autenticação ao inicializar o ViewModel
+           self.user = Auth.auth().currentUser
+           listenToAuthStateChanges()
+       }
+    
     func signInWithGoogle() {
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
 
         // Configuração do Google Sign-In
-        let config = GIDConfiguration(clientID: clientID)
+        _ = GIDConfiguration(clientID: clientID)
 
         // Pegue o view controller atual
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
@@ -59,7 +65,14 @@ class AuthViewModel: ObservableObject {
 
                 // Autenticação bem-sucedida
                 self.user = authResult?.user
+                
             }
         }
     }
+    
+    private func listenToAuthStateChanges() {
+           Auth.auth().addStateDidChangeListener { [weak self] (_, user) in
+               self?.user = user
+           }
+       }
 }
