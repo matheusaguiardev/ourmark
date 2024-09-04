@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Product {
+class Product : Identifiable {
     init(
         id: String,
         name: String,

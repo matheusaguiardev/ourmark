@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AddMarketView: View {
+    @StateObject var productViewModel = ProductViewModel()
     @Binding var showModal: Bool
     @State private var marketName: String = ""
     @State private var marketPrice: String = ""
@@ -19,6 +20,11 @@ struct AddMarketView: View {
             Form {
                 Section(header: Text("Nome do supermercado")) {
                     TextField("Nome", text: $marketName)
+                }
+                
+                Text("Produtos para adicionar nesse mercado!")
+                List(productViewModel.products) { product in
+                    ProductCell(product: product, color: .white)
                 }
             }
             .navigationTitle("Adicionar Mercado")

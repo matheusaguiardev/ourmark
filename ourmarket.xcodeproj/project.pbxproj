@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B606870F2BE0544E00D9C367 /* MarketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B606870E2BE0544E00D9C367 /* MarketCell.swift */; };
-		B60687122BE0931F00D9C367 /* DoubleExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60687112BE0931F00D9C367 /* DoubleExt.swift */; };
 		B60687142BE0943100D9C367 /* DateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60687132BE0943100D9C367 /* DateExt.swift */; };
 		B60687162BE09A9200D9C367 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60687152BE09A9200D9C367 /* ProductCell.swift */; };
 		B60687192BE0A4C000D9C367 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60687182BE0A4C000D9C367 /* ProductView.swift */; };
@@ -18,9 +17,15 @@
 		B66422E82C7E7DF40069E3A9 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66422E72C7E7DF40069E3A9 /* AuthViewModel.swift */; };
 		B66422EB2C7E94010069E3A9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B66422EA2C7E94010069E3A9 /* GoogleService-Info.plist */; };
 		B67D15492BDF4957007E690B /* ourmarketApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67D15482BDF4957007E690B /* ourmarketApp.swift */; };
-		B67D154B2BDF4957007E690B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67D154A2BDF4957007E690B /* ContentView.swift */; };
+		B67D154B2BDF4957007E690B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67D154A2BDF4957007E690B /* HomeView.swift */; };
 		B67D154D2BDF4958007E690B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B67D154C2BDF4958007E690B /* Assets.xcassets */; };
 		B67D15512BDF4958007E690B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B67D15502BDF4958007E690B /* Preview Assets.xcassets */; };
+		B6C50E552C854E8F00CCEE8B /* MarketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C50E542C854E8F00CCEE8B /* MarketViewModel.swift */; };
+		B6C50E572C87B01900CCEE8B /* AddMarketModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C50E562C87B01900CCEE8B /* AddMarketModalView.swift */; };
+		B6C50E5B2C87B56D00CCEE8B /* MarketRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C50E5A2C87B56D00CCEE8B /* MarketRepository.swift */; };
+		B6C50E5D2C87DC7800CCEE8B /* ProductRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C50E5C2C87DC7800CCEE8B /* ProductRepository.swift */; };
+		B6C50E5F2C87DE9F00CCEE8B /* ProductViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C50E5E2C87DE9F00CCEE8B /* ProductViewModel.swift */; };
+		B6C50E642C87E92700CCEE8B /* CurrencyField in Frameworks */ = {isa = PBXBuildFile; productRef = B6C50E632C87E92700CCEE8B /* CurrencyField */; };
 		B6ECCC412BDF4FB9007AEACA /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B6ECCC402BDF4FB9007AEACA /* FirebaseAuth */; };
 		B6ECCC432BDF4FB9007AEACA /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = B6ECCC422BDF4FB9007AEACA /* FirebaseDatabase */; };
 		B6ECCC452BDF4FB9007AEACA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B6ECCC442BDF4FB9007AEACA /* FirebaseFirestore */; };
@@ -36,7 +41,6 @@
 
 /* Begin PBXFileReference section */
 		B606870E2BE0544E00D9C367 /* MarketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketCell.swift; sourceTree = "<group>"; };
-		B60687112BE0931F00D9C367 /* DoubleExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExt.swift; sourceTree = "<group>"; };
 		B60687132BE0943100D9C367 /* DateExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExt.swift; sourceTree = "<group>"; };
 		B60687152BE09A9200D9C367 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		B60687182BE0A4C000D9C367 /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
@@ -48,10 +52,15 @@
 		B66422EA2C7E94010069E3A9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B67D15452BDF4957007E690B /* ourmarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ourmarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B67D15482BDF4957007E690B /* ourmarketApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ourmarketApp.swift; sourceTree = "<group>"; };
-		B67D154A2BDF4957007E690B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B67D154A2BDF4957007E690B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B67D154C2BDF4958007E690B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B67D154E2BDF4958007E690B /* ourmarket.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ourmarket.entitlements; sourceTree = "<group>"; };
 		B67D15502BDF4958007E690B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B6C50E542C854E8F00CCEE8B /* MarketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketViewModel.swift; sourceTree = "<group>"; };
+		B6C50E562C87B01900CCEE8B /* AddMarketModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMarketModalView.swift; sourceTree = "<group>"; };
+		B6C50E5A2C87B56D00CCEE8B /* MarketRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketRepository.swift; sourceTree = "<group>"; };
+		B6C50E5C2C87DC7800CCEE8B /* ProductRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRepository.swift; sourceTree = "<group>"; };
+		B6C50E5E2C87DE9F00CCEE8B /* ProductViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewModel.swift; sourceTree = "<group>"; };
 		B6ECCC512BDF60F3007AEACA /* UserOurMarket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOurMarket.swift; sourceTree = "<group>"; };
 		B6ECCC532BDF615D007AEACA /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		B6ECCC552BDF620B007AEACA /* Unity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unity.swift; sourceTree = "<group>"; };
@@ -67,6 +76,7 @@
 				B6ECCC4A2BDF4FEE007AEACA /* GoogleSignIn in Frameworks */,
 				B6ECCC432BDF4FB9007AEACA /* FirebaseDatabase in Frameworks */,
 				B6ECCC472BDF4FB9007AEACA /* FirebaseStorage in Frameworks */,
+				B6C50E642C87E92700CCEE8B /* CurrencyField in Frameworks */,
 				B6ECCC4C2BDF4FEE007AEACA /* GoogleSignInSwift in Frameworks */,
 				B6ECCC412BDF4FB9007AEACA /* FirebaseAuth in Frameworks */,
 				B6ECCC452BDF4FB9007AEACA /* FirebaseFirestore in Frameworks */,
@@ -88,7 +98,8 @@
 		B60687172BE0A48F00D9C367 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B67D154A2BDF4957007E690B /* ContentView.swift */,
+				B6C50E562C87B01900CCEE8B /* AddMarketModalView.swift */,
+				B67D154A2BDF4957007E690B /* HomeView.swift */,
 				B60687182BE0A4C000D9C367 /* ProductView.swift */,
 				B66422D72C443BE80069E3A9 /* LoginView.swift */,
 			);
@@ -107,6 +118,8 @@
 			isa = PBXGroup;
 			children = (
 				B66422E72C7E7DF40069E3A9 /* AuthViewModel.swift */,
+				B6C50E542C854E8F00CCEE8B /* MarketViewModel.swift */,
+				B6C50E5E2C87DE9F00CCEE8B /* ProductViewModel.swift */,
 			);
 			path = viewmodel;
 			sourceTree = "<group>";
@@ -130,6 +143,8 @@
 		B67D15472BDF4957007E690B /* ourmarket */ = {
 			isa = PBXGroup;
 			children = (
+				B6C50E592C87B53E00CCEE8B /* data */,
+				B6C50E582C87B4B100CCEE8B /* extensions */,
 				B66422EA2C7E94010069E3A9 /* GoogleService-Info.plist */,
 				B66422E92C7E81BF0069E3A9 /* Info.plist */,
 				B66422E62C7E7DE90069E3A9 /* viewmodel */,
@@ -161,10 +176,25 @@
 				B6ECCC532BDF615D007AEACA /* Product.swift */,
 				B6ECCC552BDF620B007AEACA /* Unity.swift */,
 				B6ECCC572BDF6441007AEACA /* Market.swift */,
-				B60687112BE0931F00D9C367 /* DoubleExt.swift */,
-				B60687132BE0943100D9C367 /* DateExt.swift */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		B6C50E582C87B4B100CCEE8B /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B60687132BE0943100D9C367 /* DateExt.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
+		B6C50E592C87B53E00CCEE8B /* data */ = {
+			isa = PBXGroup;
+			children = (
+				B6C50E5A2C87B56D00CCEE8B /* MarketRepository.swift */,
+				B6C50E5C2C87DC7800CCEE8B /* ProductRepository.swift */,
+			);
+			path = data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,6 +221,7 @@
 				B6ECCC492BDF4FEE007AEACA /* GoogleSignIn */,
 				B6ECCC4B2BDF4FEE007AEACA /* GoogleSignInSwift */,
 				B6ECCC4F2BDF51AB007AEACA /* FirebaseAnalytics */,
+				B6C50E632C87E92700CCEE8B /* CurrencyField */,
 			);
 			productName = ourmarket;
 			productReference = B67D15452BDF4957007E690B /* ourmarket.app */;
@@ -223,6 +254,7 @@
 			packageReferences = (
 				B6ECCC3F2BDF4FB9007AEACA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				B6ECCC482BDF4FEE007AEACA /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				B6C50E622C87E92700CCEE8B /* XCRemoteSwiftPackageReference "swiftui-currency-field" */,
 			);
 			productRefGroup = B67D15462BDF4957007E690B /* Products */;
 			projectDirPath = "";
@@ -251,20 +283,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B67D154B2BDF4957007E690B /* ContentView.swift in Sources */,
+				B6C50E552C854E8F00CCEE8B /* MarketViewModel.swift in Sources */,
+				B67D154B2BDF4957007E690B /* HomeView.swift in Sources */,
 				B6ECCC542BDF615D007AEACA /* Product.swift in Sources */,
+				B6C50E572C87B01900CCEE8B /* AddMarketModalView.swift in Sources */,
 				B67D15492BDF4957007E690B /* ourmarketApp.swift in Sources */,
 				B66422E52C7E7D1C0069E3A9 /* AppDelegate.swift in Sources */,
 				B6ECCC562BDF620B007AEACA /* Unity.swift in Sources */,
 				B6ECCC522BDF60F3007AEACA /* UserOurMarket.swift in Sources */,
 				B6ECCC582BDF6441007AEACA /* Market.swift in Sources */,
-				B60687122BE0931F00D9C367 /* DoubleExt.swift in Sources */,
 				B60687192BE0A4C000D9C367 /* ProductView.swift in Sources */,
 				B60687162BE09A9200D9C367 /* ProductCell.swift in Sources */,
 				B606870F2BE0544E00D9C367 /* MarketCell.swift in Sources */,
 				B66422E82C7E7DF40069E3A9 /* AuthViewModel.swift in Sources */,
+				B6C50E5F2C87DE9F00CCEE8B /* ProductViewModel.swift in Sources */,
 				B66422D82C443BE80069E3A9 /* LoginView.swift in Sources */,
+				B6C50E5B2C87B56D00CCEE8B /* MarketRepository.swift in Sources */,
 				B606871B2BE0C42700D9C367 /* CurrencyHelper.swift in Sources */,
+				B6C50E5D2C87DC7800CCEE8B /* ProductRepository.swift in Sources */,
 				B60687142BE0943100D9C367 /* DateExt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -494,6 +530,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B6C50E622C87E92700CCEE8B /* XCRemoteSwiftPackageReference "swiftui-currency-field" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jtrinc/swiftui-currency-field.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.2;
+			};
+		};
 		B6ECCC3F2BDF4FB9007AEACA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -513,6 +557,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B6C50E632C87E92700CCEE8B /* CurrencyField */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B6C50E622C87E92700CCEE8B /* XCRemoteSwiftPackageReference "swiftui-currency-field" */;
+			productName = CurrencyField;
+		};
 		B6ECCC402BDF4FB9007AEACA /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B6ECCC3F2BDF4FB9007AEACA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

@@ -36,7 +36,6 @@ struct ProductCell: View {
                 Text("Nome: \(self.product.name)")
                 //Text("Ultimo preço: \(self.product.price.toCurrency())")
                 CurrencyField(value: $price)
-                    .font(.largeTitle.monospaced())
                 Text("Quantidade: \(self.product.quantity) \(self.product.unity)")
             }
             Spacer()
