@@ -17,6 +17,13 @@ class ProductViewModel: ObservableObject {
     init() {
         fetchProducts()
     }
+    
+    func sumPrice() -> Int {
+            let priceSum = self.products.reduce(0) { total, product in
+                total + product.price
+            }
+        return priceSum
+    }
 
     func fetchProducts() {
         db.child("products").observe(.value) { [weak self] snapshot in
@@ -50,7 +57,7 @@ class ProductViewModel: ObservableObject {
         let unity = Unity(rawValue: unityString) ?? .Un
         let mark = value["mark"] as? String ?? ""
         let details = value["details"] as? String ?? ""
-
+        let inCart = value["inCart"] as? Bool ?? false
         let substitute = parseSubstitute(from: value["substitute"] as? [String: Any])
 
         return Product(
@@ -61,7 +68,8 @@ class ProductViewModel: ObservableObject {
             details: details,
             quantity: quantity,
             unity: unity,
-            substitute: substitute
+            substitute: substitute,
+            inCart: inCart
         )
     }
 
@@ -75,7 +83,8 @@ class ProductViewModel: ObservableObject {
             details: substituteDict["details"] as? String ?? "",
             quantity: substituteDict["quantity"] as? Int ?? 0,
             unity: Unity(rawValue: substituteDict["unity"] as? String ?? "Un") ?? .Un,
-            substitute: nil // Evitar recursão infinita
+            substitute: nil, // Evitar recursão infinita
+            inCart: substituteDict["inCart"] as? Bool ?? false
         )
     }
 }

@@ -74,6 +74,7 @@ class MarketViewModel: ObservableObject {
             let unity = Unity(rawValue: unityString) ?? .Un
             let mark = productDict["mark"] as? String ?? ""
             let details = productDict["details"] as? String ?? ""
+            let inCart = productDict["inCart"] as? Bool ?? false
 
             let substitute = parseSubstitute(from: productDict["substitute"] as? [String: Any])
 
@@ -81,11 +82,12 @@ class MarketViewModel: ObservableObject {
                 id: productId,
                 name: productName,
                 price: productPrice,
-                mark: mark, // Corrigido
-                details: details, // Corrigido
-                quantity: productQuantity, // Corrigido
-                unity: unity, // Corrigido
-                substitute: substitute
+                mark: mark,
+                details: details,
+                quantity: productQuantity,
+                unity: unity,
+                substitute: substitute,
+                inCart: inCart
             )
         }
     }
@@ -100,7 +102,8 @@ class MarketViewModel: ObservableObject {
             details: substituteDict["details"] as? String ?? "",
             quantity: substituteDict["quantity"] as? Int ?? 0,
             unity: Unity(rawValue: substituteDict["unity"] as? String ?? "Un") ?? .Un,
-            substitute: nil // Evitar recursão infinita
+            substitute: nil,
+            inCart: substituteDict["inCart"] as? Bool ?? false
         )
     }
 }

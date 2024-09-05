@@ -16,7 +16,8 @@ class Product : Identifiable {
         details: String,
         quantity: Int,
         unity: Unity,
-        substitute: Product?
+        substitute: Product?,
+        inCart: Bool
     ) {
         self.id = id
         self.name = name
@@ -26,6 +27,7 @@ class Product : Identifiable {
         self.quantity = quantity
         self.unity = unity
         self.substitute = substitute
+        self.inCart = inCart
     }
     
     let id: String
@@ -36,6 +38,7 @@ class Product : Identifiable {
     let mark: String
     let substitute: Product?
     let details: String
+    var inCart: Bool
     
     func toDictionary() -> [String: Any] {
            var dict: [String: Any] = [
@@ -45,7 +48,8 @@ class Product : Identifiable {
                 "quantity": quantity,
                 "unity": unity.rawValue,
                 "mark": mark,
-                "details": details
+                "details": details,
+                "inCart": inCart
            ]
            
            // Adiciona o substituto ao dicionário, se existir
@@ -57,7 +61,8 @@ class Product : Identifiable {
                    "quantity": substitute.quantity,
                    "unity": substitute.unity.rawValue,
                    "mark": substitute.mark,
-                   "details": substitute.details
+                   "details": substitute.details,
+                   "inCart": substitute.inCart
                ]
            }
            
@@ -74,5 +79,6 @@ let productStub = Product(
     details: "comprar sem açucar",
     quantity: 1,
     unity: Unity.Un,
-    substitute: nil
+    substitute: nil,
+    inCart: false
 )

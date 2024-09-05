@@ -24,7 +24,13 @@ struct AddMarketView: View {
                 
                 Text("Produtos para adicionar nesse mercado!")
                 List(productViewModel.products) { product in
-                    ProductCell(product: product, color: .white)
+                    ProductCell(
+                        product: product,
+                        color: .constant(.black),
+                        selectedColor: Color("selectorColor")
+                    ) { selected in
+                        product.inCart = selected
+                    }
                 }
             }
             .navigationTitle("Adicionar Mercado")
@@ -36,13 +42,15 @@ struct AddMarketView: View {
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Salvar") {
+                        
+                        
                         let newMarket = Market(
                             id: UUID().uuidString,
                             name: marketName,
-                            price: Int(marketPrice) ?? 0,
-                            itensAmount: 0,
+                            price: productViewModel.sumPrice(),
+                            itensAmount: productViewModel.products.count,
                             date: Date(),
-                            productList: [],
+                            productList: productViewModel.products,
                             createdBy: owner
                         )
                         onSave(newMarket)
