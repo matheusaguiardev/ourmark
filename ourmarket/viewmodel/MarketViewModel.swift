@@ -12,6 +12,7 @@ import SwiftUI
 
 class MarketViewModel: ObservableObject {
     @Published var markets: [Market] = []
+    @Published var products: [Product] = []
 
     private let db = Database.database().reference()
     
@@ -28,7 +29,7 @@ class MarketViewModel: ObservableObject {
             }
         }
     }
-
+    
     private func parseMarkets(from snapshot: DataSnapshot) -> [Market] {
         var newMarkets: [Market] = []
         for child in snapshot.children {
@@ -51,7 +52,7 @@ class MarketViewModel: ObservableObject {
         let date = Date(timeIntervalSince1970: dateInterval)
         let createdBy = value["createdBy"] as? String ?? ""
 
-        let productList = parseProducts(from: value["productList"] as? [[String: Any]] ?? [])
+        let productList = parseProducts(from: value["products"] as? [[String: Any]] ?? [])
 
         return Market(
             id: id,

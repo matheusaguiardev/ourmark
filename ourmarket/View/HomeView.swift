@@ -18,7 +18,9 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             List(viewModel.markets) { market in
-                MarketCell(market: market)
+                NavigationLink(destination: MarketView(market: market)) {
+                   MarketCell(market: market)
+                }
             }
             .navigationTitle("OurMarket")
             .navigationBarTitleDisplayMode(.inline) // Ajusta a exibição do título
@@ -31,7 +33,7 @@ struct HomeView: View {
                 }
             }
             .sheet(isPresented: $showModal) {
-                AddMarketView(showModal: $showModal, owner: self.owner) { market in
+                CreateMarketView(showModal: $showModal, owner: self.owner) { market in
                     marketRepository.addMarket(market: market)
                 }
             }

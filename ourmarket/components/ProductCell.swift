@@ -14,7 +14,7 @@ struct ProductCell: View {
     let selectedColor: Color
     let unselectedColor: Color
 
-    @State private var isSelected: Bool = false
+    @Binding var isSelected: Bool
     @Binding var color: Color
     
     @State private var chosenLocale = Locale(identifier: "pt_BR")
@@ -31,6 +31,7 @@ struct ProductCell: View {
 
     init(
         product: Product,
+        isSelected: Binding<Bool>,
         color: Binding<Color>,
         selectedColor: Color = .green,
         unselectedColor: Color = .white,
@@ -42,21 +43,21 @@ struct ProductCell: View {
         self.unselectedColor = Color("background")
         self.price = product.price
         self.onClick = onClick
+        self._isSelected = isSelected
     }
 
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text("Nome: \(self.product.name)")
+                Text("\(self.product.name)").fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 HStack {
                     Text("Último preço:")
-                    CurrencyField(value: $price)
+                    CurrencyField(value: $price).disabled(true)
                 }
                 Text("Quantidade: \(self.product.quantity) \(self.product.unity)")
             }
             Spacer()
             Image(systemName: "chevron.right")
-                .foregroundColor(Color.black)
                 .padding(6)
         }
         .padding(12)
@@ -74,6 +75,10 @@ struct ProductCell: View {
 #Preview {
     ProductCell(
         product: productStub,
+        isSelected: Binding<Bool>(
+            get: { false }, // Retorna o valor inicial falso
+            set: { _ in }   // Não faz nada no mock, já que não precisa alterar o valor
+        ),
         color: .constant(.white),
         selectedColor: Color("selectorColor")
     ) { onClick in print("Foi selecionado: \(onClick)") }

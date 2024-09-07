@@ -13,4 +13,6 @@ enum Unity: String, CaseIterable {
     case ml = "ml"
     case mm = "mm"
     case M = "m"
+    case g = "g"
+    case kg = "kg"
 }

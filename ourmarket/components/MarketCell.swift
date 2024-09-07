@@ -35,14 +35,7 @@ struct MarketCell: View {
                         .font(.system(size: 12))
                 }
             }
-            Image(systemName: "chevron.right")
-                    .foregroundColor(Color.black)
-                    .padding(6)
-        }.padding(15)
-            .overlay(
-                RoundedRectangle(cornerRadius: 14)
-                    .stroke(.black, lineWidth: 1)
-            )
+        }.padding(12)
     }
 }
 

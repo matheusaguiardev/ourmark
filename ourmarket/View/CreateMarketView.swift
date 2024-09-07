@@ -26,10 +26,15 @@ struct CreateMarketView: View {
                 List(productViewModel.products) { product in
                     ProductCell(
                         product: product,
+                        isSelected: Binding<Bool>(
+                            get: { product.inCart },
+                            set: { value in product.inCart = value }
+                        ),
                         color: .constant(.black),
                         selectedColor: Color("selectorColor")
                     ) { selected in
                         product.inCart = selected
+                        productViewModel.putInMarketCart(product: product)
                     }
                 }
             }
@@ -42,15 +47,15 @@ struct CreateMarketView: View {
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Salvar") {
-                        
+                        let productList = productViewModel.products.filter { product in product.inCart }
                         
                         let newMarket = Market(
                             id: UUID().uuidString,
                             name: marketName,
-                            price: productViewModel.sumPrice(),
-                            itensAmount: productViewModel.products.count,
+                            price: productViewModel.sumPrice(productList),
+                            itensAmount: productList.count,
                             date: Date(),
-                            productList: productViewModel.products,
+                            productList: productList,
                             createdBy: owner
                         )
                         onSave(newMarket)
