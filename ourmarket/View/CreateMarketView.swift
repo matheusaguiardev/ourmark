@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AddMarketView: View {
+struct CreateMarketView: View {
     @StateObject var productViewModel = ProductViewModel()
     @Binding var showModal: Bool
     @State private var marketName: String = ""
@@ -63,6 +63,6 @@ struct AddMarketView: View {
 }
 
 #Preview {
-    AddMarketView(showModal: .constant(true), owner: "João") { market in print(market) }
+    CreateMarketView(showModal: .constant(true), owner: "João") { market in print(market) }
 }
 
